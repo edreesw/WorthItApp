@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Worth It App</string>
+    <string name="item_name_hint">Item Name</string>
+    <string name="item_count_hint">#</string>
+    <string name="item_cost_hint">$</string>
+    <string name="worth_it_button">Worth It?</string>
+    <string name="clear_button">Clear</string>
+    <string name="add_item_button">+</string>
+    <string name="add_button">Add</string>
+    <string name="infoMessage_noItems">It appears there are no items currently saved. Add some items by filling out the information above and pressing the \"Add\" button!</string>
+    <string name="infoMessage_compareText">Enter the info for the item whose worth you want to calculate, then press the \"Worth It\" button to see its value based on items you\'ve added in  your item list!</string>
+    <string name="menu_view_items">View Items</string>
+    <string name="menu_delete_all_items">Delete All Items</string>
+</resources>
