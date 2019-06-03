@@ -30,6 +30,7 @@ public class SaveDataObject {
         } finally {
             try {
                 if(bufferedWriter != null) {
+                    System.out.println("CLOSING 1");
                     bufferedWriter.close();
                 }
             } catch (Exception e) { }
@@ -119,6 +120,7 @@ public class SaveDataObject {
         } finally {
             try {
                 if (bufferedReader != null) {
+                    System.out.println("CLOSING 2");
                     bufferedReader.close();
                 }
             } catch (Exception e) { }

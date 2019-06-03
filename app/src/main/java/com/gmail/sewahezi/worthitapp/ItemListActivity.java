@@ -51,6 +51,7 @@ public class ItemListActivity extends AppCompatActivity {
         TableLayout.LayoutParams tableParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT, 1);
         //TableRow.LayoutParams rowParams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1);
         if(itemMap.isEmpty()) {
+            System.out.println("==HERE IN EMPTY LIST===");
             tableRow = new TableRow(this);
 
             tableRow.setLayoutParams(tableParams);
@@ -63,7 +64,9 @@ public class ItemListActivity extends AppCompatActivity {
             tableRow.addView(noItemsText);
             table.addView(tableRow);
         } else {
+            System.out.println("==HERE IN LIST===");
             for (String key : itemMap.keySet()) {
+                System.out.println("==HERE IN LIST===");
                 ItemObject item = itemMap.get(key);
                 final String itemName = item.itemName;
                 final String itemCost = item.itemCost;
