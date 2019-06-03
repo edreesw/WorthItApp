@@ -83,44 +83,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-   ////FIGURE OUT HOW TO READ/WRITE SAVE FILE
- /*       try {
-            FileInputStream fis = context.openFileInput(saveFileName);
-            InputStreamReader inputStreamReader = new InputStreamReader(fis);
-            bufferedReader = new BufferedReader(inputStreamReader);
-
-            String lineData = bufferedReader.readLine();
-            bufferedReader.close();
-            System.out.println("READ FILE: " + lineData);
-            //context.deleteFile(saveFileName);
-
-        } catch (FileNotFoundException fnf) {
-            System.out.println("===No save file found, attempting to create===");
-            try {
-                FileOutputStream fos = context.openFileOutput(saveFileName, Context.MODE_PRIVATE);
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
-                bufferedWriter = new BufferedWriter(outputStreamWriter);
-                bufferedWriter.write("TEST LINE\n");
-            } catch (Exception e) {
-                System.out.println("===Failed during initial saveFile creation===");
-                e.printStackTrace();
-            }
-        } catch  (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(bufferedWriter != null) {
-                    System.out.println("CLOSING 1");
-                    bufferedWriter.close();
-                }
-                if(bufferedReader != null) {
-                    System.out.println("CLOSING 2");
-                    bufferedReader.close();
-                }
-            } catch (Exception e) { }
-        }
-*/
     }
 
 
