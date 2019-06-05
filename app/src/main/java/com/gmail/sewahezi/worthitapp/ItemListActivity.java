@@ -84,7 +84,7 @@ public class ItemListActivity extends AppCompatActivity {
                 rowTextItemPrice.setLayoutParams(new TableRow.LayoutParams(0,
                         TableRow.LayoutParams.WRAP_CONTENT, 0.3f));
                 rowTextItemPrice.setTextSize(24f);
-                rowTextItemPrice.setText(item.itemCost);
+                rowTextItemPrice.setText("$" + item.itemCost);
 
                 Button rowDeleteButton = new Button(this);
                 rowDeleteButton.setLayoutParams(new TableRow.LayoutParams(0,
@@ -152,13 +152,39 @@ public class ItemListActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.menuDeleteAllItems:
-                //clear save data, reload page with empty list
-                itemMap.clear();
-                SaveDataObject.clearSaveFile(this, MainActivity.SAVE_FILE_NAME);
-                loadItemsToTable();
+                deleteAllItemAlert();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void deleteAllItemAlert() {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Delete All Items");
+        alertDialog.setMessage("Are you sure you want to delete ALL items from the list? This cannot be undone!");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteAllItems();
+            }
+        });
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    private void deleteAllItems() {
+        //clear save data, reload page with empty list
+        itemMap.clear();
+        SaveDataObject.clearSaveFile(this, MainActivity.SAVE_FILE_NAME);
+        loadItemsToTable();
     }
 }
