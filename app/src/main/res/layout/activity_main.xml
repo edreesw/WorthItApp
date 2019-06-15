@@ -62,6 +62,7 @@
         android:text="@string/clear_button"
         app:layout_constraintEnd_toStartOf="@+id/worthItButton"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight=".2"
         app:layout_constraintStart_toStartOf="@+id/itemNameText"
         app:layout_constraintTop_toBottomOf="@+id/itemNameText" />
 
@@ -76,6 +77,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/clearButton"
         app:layout_constraintEnd_toStartOf="@+id/addButton"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight=".6"
         app:layout_constraintStart_toEndOf="@+id/clearButton" />
 
     <Button
@@ -89,6 +91,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/worthItButton"
         app:layout_constraintEnd_toEndOf="@+id/priceText"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.2"
         app:layout_constraintStart_toEndOf="@+id/worthItButton" />
 
     <ScrollView
@@ -139,6 +142,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clearButton" />

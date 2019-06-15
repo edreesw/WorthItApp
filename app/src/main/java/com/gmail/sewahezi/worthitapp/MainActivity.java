@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -193,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
            //}
 
        } else {
-           //TODO: alert saying both fields aren't filled out
            fieldsNotFilledAlert();
        }
         /*
@@ -238,6 +238,21 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    private void addItemsAlert() {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("No Saved Items!");
+        alertDialog.setMessage("Add some items first so you have something to compare with!");
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+
+        alertDialog.show();
+    }
+
 
 
     public void worthItCalculation(View view) {
@@ -252,6 +267,11 @@ public class MainActivity extends AppCompatActivity {
         String worthItCost = priceText.getText().toString();
         if(worthItName.length() > 0 &&
                 worthItCost.length() > 0) {
+            //make sure there are item saved in the item list
+            if(itemMap.isEmpty()) {
+                addItemsAlert();
+                return;
+            }
             BigDecimal worthItCostDec = new BigDecimal(worthItCost);
             worthItCostDec = worthItCostDec.setScale(2, BigDecimal.ROUND_FLOOR);
             worthItCost = worthItCostDec.toString();
@@ -284,23 +304,28 @@ public class MainActivity extends AppCompatActivity {
                 tableRow.setLayoutParams(tableParams);
 
                 TextView rowTextItemName = new TextView(this);
-                rowTextItemName.setLayoutParams(new TableRow.LayoutParams(0,
-                        TableRow.LayoutParams.WRAP_CONTENT, 0.5f));
+                HorizontalScrollView rowTextItemNameScrollView = new HorizontalScrollView(this);
+                rowTextItemNameScrollView.setLayoutParams(new TableRow.LayoutParams(0,
+                        TableRow.LayoutParams.WRAP_CONTENT, 0.8f));
+                //rowTextItemNameScrollView.setPadding(0,0,32,0);
                 rowTextItemName.setTextSize(24f);
                 rowTextItemName.setMaxLines(1);
-                rowTextItemName.setText(dividedNum.toString());
+                rowTextItemName.setText(item.itemName);
+                rowTextItemNameScrollView.addView(rowTextItemName);
 
                 TextView rowTextItemAmount = new TextView(this);
-                rowTextItemAmount.setLayoutParams(new TableRow.LayoutParams(0,
-                        TableRow.LayoutParams.WRAP_CONTENT, 0.5f));
+                HorizontalScrollView rowTextItemAmountScrollView = new HorizontalScrollView(this);
+                rowTextItemAmountScrollView.setLayoutParams(new TableRow.LayoutParams(0,
+                        TableRow.LayoutParams.WRAP_CONTENT, 0.2f));
+                rowTextItemAmountScrollView.setPadding(0,0,32,0);
                 rowTextItemAmount.setTextSize(24f);
                 rowTextItemName.setMaxLines(1);
-                rowTextItemAmount.setText(item.itemName);
+                rowTextItemAmount.setText(dividedNum.toString());
+                rowTextItemAmountScrollView.addView(rowTextItemAmount);
 
 
-
-                tableRow.addView(rowTextItemName);
-                tableRow.addView(rowTextItemAmount);
+                tableRow.addView(rowTextItemAmountScrollView);
+                tableRow.addView(rowTextItemNameScrollView);
                 table.addView(tableRow);
             }
 

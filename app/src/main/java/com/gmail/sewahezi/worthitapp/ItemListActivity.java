@@ -2,6 +2,7 @@ package com.gmail.sewahezi.worthitapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -74,17 +76,24 @@ public class ItemListActivity extends AppCompatActivity {
                 tableRow.setLayoutParams(tableParams);
 
                 TextView rowTextItemName = new TextView(this);
-                rowTextItemName.setLayoutParams(new TableRow.LayoutParams(0,
+                HorizontalScrollView rowTextItemNameScrollView = new HorizontalScrollView(this);
+                rowTextItemNameScrollView.setLayoutParams(new TableRow.LayoutParams(0,
                         TableRow.LayoutParams.WRAP_CONTENT, 0.5f));
+                rowTextItemNameScrollView.setPadding(0,0,32,0);
                 rowTextItemName.setTextSize(24f);
                 rowTextItemName.setMaxLines(1);
                 rowTextItemName.setText(item.itemName);
+                rowTextItemNameScrollView.addView(rowTextItemName);
 
                 TextView rowTextItemPrice = new TextView(this);
-                rowTextItemPrice.setLayoutParams(new TableRow.LayoutParams(0,
+                HorizontalScrollView rowTextItemPriceScrollView = new HorizontalScrollView(this);
+                rowTextItemPriceScrollView.setLayoutParams(new TableRow.LayoutParams(0,
                         TableRow.LayoutParams.WRAP_CONTENT, 0.3f));
+                rowTextItemPriceScrollView.setPadding(0,0,32,0);
                 rowTextItemPrice.setTextSize(24f);
+                rowTextItemPrice.setMaxLines(1);
                 rowTextItemPrice.setText("$" + item.itemCost);
+                rowTextItemPriceScrollView.addView(rowTextItemPrice);
 
                 Button rowDeleteButton = new Button(this);
                 rowDeleteButton.setLayoutParams(new TableRow.LayoutParams(0,
@@ -98,8 +107,8 @@ public class ItemListActivity extends AppCompatActivity {
                     }
                 });
 
-                tableRow.addView(rowTextItemName);
-                tableRow.addView(rowTextItemPrice);
+                tableRow.addView(rowTextItemNameScrollView);
+                tableRow.addView(rowTextItemPriceScrollView);
                 tableRow.addView(rowDeleteButton);
                 table.addView(tableRow);
 
