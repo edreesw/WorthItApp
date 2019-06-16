@@ -11,6 +11,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.TreeMap;
 
+/**
+ * Author: Edrees W.
+ *
+ * Contains functions that handle saving/deleting/loading data for the app
+ */
+
 public class SaveDataObject {
     static String saveFileName = "save.txt";
     final static String SEPARATOR = ";;";

@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * test activity, not used
+ */
 public class DisplayMessageActivity extends AppCompatActivity {
 
     @Override

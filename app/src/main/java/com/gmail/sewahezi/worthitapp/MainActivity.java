@@ -30,6 +30,7 @@ import java.util.TreeMap;
  * Author: Edrees W.
  *
  * Main page for the "Worth It App" application.
+ * Add items, Display Worth It list, Navigate to item list.
  */
 
 public class MainActivity extends AppCompatActivity {

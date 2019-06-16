@@ -20,6 +20,12 @@ import android.widget.Toast;
 
 import java.util.TreeMap;
 
+/**
+ * Author: Edrees W.
+ *
+ * Page that displays all items
+ * Contains Delete All menu button, or individual delete functionality
+ */
 public class ItemListActivity extends AppCompatActivity {
     TreeMap<String, ItemObject> itemMap = null;
     @Override
