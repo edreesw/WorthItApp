@@ -16,6 +16,7 @@ User can add items and their cost that they consider "worth" the value. These it
 
 Once some items that are deemed "Worth It" are added, you can enter an item and its cost whose value you wish to compare with your existing items, and tap the "Worth It?" button on the main page. The app will display the approximate worth of the new item using previously added items in a dynamically created list on the page.
 
+# Technologies Used
 Written in Java and XML, uses standard Java and Android libraries. 
 
 # Future Plans
