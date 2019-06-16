@@ -26,6 +26,12 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.TreeMap;
 
+/**
+ * Author: Edrees W.
+ *
+ * Main page for the "Worth It App" application.
+ */
+
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MAP = "com.gmail.sewahezi.MAP";
     EditText nameText;
@@ -58,11 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /***
-         * TODO:
-         * Finish main page
-         * Add save file w/ item obj info
-         * Create button that leads to item list
-         * create item list activity (populate with save file data)
+
          */
         //check if save file exists and set initial info text
         try {
@@ -156,10 +158,6 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addItemToSavedItems(View view) {
-        //TODO: check that fields are filled out
-        // check that item name isn't already used/exists in saved items list (if so, alert message)
-        // add item data and save it
-        // in the item list activity, make a "delete all" button that deletes the save file (since it seems to persist even after an uninstall for some reason)
        String nameStr = nameText.getText().toString();
        String priceStr = priceText.getText().toString();
        System.out.println("ADDING NAME: " + nameStr);
@@ -256,12 +254,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void worthItCalculation(View view) {
-        //TODO: check that saved data exists to compare to
-        // check that fields are filled out
-        // calculate all item "worth" values based on saved data and display as a list on the page (update info text)
-        //hide keyboard:
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY);
 
         String worthItName = nameText.getText().toString();
         String worthItCost = priceText.getText().toString();
@@ -330,30 +322,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } else {
-            //TODO: alert saying fields aren't filled
+
             fieldsNotFilledAlert();
         }
 
-            /** test with creating views
-             //test table row creation
-             TableLayout table = (TableLayout) findViewById(R.id.itemTable);
-             TableRow tableRow = new TableRow(this);
 
-             TableLayout.LayoutParams tableParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
-             TableRow.LayoutParams rowParams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 1);
-
-             tableRow.setLayoutParams(tableParams);
-             TextView rowText = new TextView(this);
-             rowText.setLayoutParams(rowParams);
-             rowText.setText("TEST TEXT");
-             Button rowButton = new Button(this);
-             rowButton.setLayoutParams((rowParams));
-             rowButton.setText("button");
-
-             tableRow.addView(rowText);
-             tableRow.addView(rowButton);
-             table.addView(tableRow);
-             **/
 
 
     }
